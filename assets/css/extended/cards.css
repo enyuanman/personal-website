@@ -1,0 +1,115 @@
+.header {
+    background: var(--theme);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
+}
+
+.logo a {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu a {
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+#menu a:hover {
+    color: var(--primary);
+}
+
+#menu a svg {
+    display: block;
+    vertical-align: middle;
+}
+
+#menu li {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle,
+#theme-toggle svg {
+    cursor: pointer;
+}
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.github-activity {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.github-activity h3 {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.github-activity img {
+    border-radius: 4px;
+}
+
+.reachability {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.reachability h3 {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.reach-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.reach-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.reach-links a:hover {
+    color: var(--primary);
+}

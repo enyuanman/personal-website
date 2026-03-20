@@ -1,0 +1,53 @@
+<div class="latest-posts">
+    <h3>Latest Posts</h3>
+    <ul class="post-list">
+        {{- $pages := where .Site.RegularPages "Type" "posts" }}
+        {{- range first 3 $pages }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</span>
+        </li>
+        {{- end }}
+    </ul>
+    <a href="/posts/" class="see-all">See all posts →</a>
+</div>
+
+<div class="bottom-grid">
+    <div class="github-activity">
+        <h3>GitHub Activity</h3>
+        <img
+            src="https://ghchart.rshah.org/enyuanman"
+            alt="GitHub Contribution Graph"
+            style="max-width: 100%; width: 100%;"
+        />
+        <img
+            src="https://github-readme-streak-stats.herokuapp.com?user=enyuanman&theme=dark&hide_border=true&background=00000000"
+            alt="GitHub Streak"
+            style="max-width: 100%;"
+        />
+    </div>
+
+    <div class="reachability">
+        <h3>Reachability</h3>
+        <ul class="reach-links">
+            <li>
+                <a href="https://github.com/enyuanman" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    GitHub
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/enyuan-zwerver/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    LinkedIn
+                </a>
+            </li>
+            <li>
+                <a href="/index.xml" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+                    RSS
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

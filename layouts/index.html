@@ -1,0 +1,7 @@
+{{- define "main" }}
+{{- if .Site.Params.homeInfoParams }}
+{{- partial "home_info.html" . }}
+{{- end }}
+{{- partial "home_info_addons.html" . }}
+{{- partial "index_profile.html" . }}
+{{- end }}
