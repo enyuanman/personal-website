@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on enyuanzwerver</title>
-    <link>http://192.168.1.120:1313/posts/</link>
-    <description>Recent content in Posts on enyuanzwerver</description>
+    <title>Gitops on enyuanzwerver</title>
+    <link>http://192.168.1.120:1313/tags/gitops/</link>
+    <description>Recent content in Gitops on enyuanzwerver</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Enyuan</copyright>
-    <lastBuildDate>Mon, 16 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://192.168.1.120:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://192.168.1.120:1313/tags/gitops/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Setting Up Flux CD on a Home Cluster</title>
@@ -16,16 +16,6 @@
       
       <guid>http://192.168.1.120:1313/posts/second-post/</guid>
       <description>&lt;p&gt;A walkthrough of how I set up Flux CD on my home Kubernetes cluster to manage deployments via GitOps. Everything from bootstrapping to managing secrets with Sealed Secrets.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>http://192.168.1.120:1313/posts/hello-world/</link>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://192.168.1.120:1313/posts/hello-world/</guid>
-      <description>&lt;p&gt;This is the beginning of my personal site.&#xA;Built on Kubernetes, deployed with FluxCD, served via Cloudflare Tunnels.&lt;/p&gt;</description>
       
     </item>
     

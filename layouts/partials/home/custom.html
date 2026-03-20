@@ -1,15 +1,42 @@
+{{- $pages := where .Site.RegularPages "Type" "posts" }}
+{{- $total := len $pages }}
+
 <div class="latest-posts">
-    <h3>Latest Posts</h3>
-    <ul class="post-list">
-        {{- $pages := where .Site.RegularPages "Type" "posts" }}
-        {{- range first 3 $pages }}
-        <li>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-            <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</span>
-        </li>
+    <div class="latest-posts-header">
+        <h3>Latest Insights</h3>
+        <div class="post-nav-buttons">
+            <button id="prev-btn" onclick="navigatePost(-1)" aria-label="Previous post">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button id="next-btn" onclick="navigatePost(1)" aria-label="Next post">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="post-slides">
+        {{- range $i, $page := (first 5 $pages) }}
+        <div class="post-slide" data-index="{{ $i }}">
+            <a href="{{ $page.Permalink }}" class="post-title-link">{{ $page.Title }}</a>
+            <p class="post-summary">{{ $page.Summary | plainify | truncate 160 }}</p>
+            <div class="post-tags">
+                {{- range $page.Params.tags }}
+                <a href="/tags/{{ . | urlize }}/" class="post-tag">{{ . }}</a>
+                {{- end }}
+            </div>
+            <span class="post-meta">{{ $page.Date.Format "January 2, 2006" }} · {{ $page.ReadingTime }} min read</span>
+        </div>
         {{- end }}
-    </ul>
-    <a href="/posts/" class="see-all">See all posts →</a>
+    </div>
+
+    <div class="post-footer">
+        <a href="/posts/" class="see-all">Explore all posts ↗</a>
+        <div class="post-dots" id="post-dots">
+            {{- range $i, $page := (first 5 $pages) }}
+            <span class="dot" onclick="goToPost({{ $i }})"></span>
+            {{- end }}
+        </div>
+    </div>
 </div>
 
 <div class="bottom-grid">
@@ -23,10 +50,9 @@
         <img
             src="https://github-readme-streak-stats.herokuapp.com?user=enyuanman&theme=dark&hide_border=true&background=00000000"
             alt="GitHub Streak"
-            style="max-width: 100%;"
+            style="display: block; margin: 1rem auto 0; max-width: 100%;"
         />
     </div>
-
     <div class="reachability">
         <h3>Reachability</h3>
         <ul class="reach-links">
@@ -51,3 +77,41 @@
         </ul>
     </div>
 </div>
+
+<script>
+let current = 0;
+let slides, dots, total;
+
+function goToPost(n) {
+    slides[current].style.display = 'none';
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].style.display = 'flex';
+    slides[current].style.flexDirection = 'column';
+    slides[current].style.gap = '8px';
+    dots[current].classList.add('active');
+    document.getElementById('prev-btn').disabled = current === 0;
+    document.getElementById('next-btn').disabled = current === total - 1;
+}
+
+function navigatePost(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < total) goToPost(next);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    slides = document.querySelectorAll('.post-slide');
+    dots = document.querySelectorAll('.dot');
+    total = slides.length;
+
+    slides.forEach((s, i) => {
+        s.style.display = i === 0 ? 'flex' : 'none';
+        s.style.flexDirection = 'column';
+        s.style.gap = '8px';
+    });
+
+    dots[0].classList.add('active');
+    document.getElementById('prev-btn').disabled = true;
+    if (total <= 1) document.getElementById('next-btn').disabled = true;
+});
+</script>

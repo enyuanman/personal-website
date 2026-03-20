@@ -96,8 +96,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.1669d04e513eb5382d59f7eceaa58e7a6133baa0470d1a166207a3edf26297f79a5eb25d1f32824e9421b3c0e55ad36c0c03c52c615f7f48726fa28d94758d8d.css"
-    integrity="sha512-FmnQTlE&#43;tTgtWffs6qWOemEzuqBHDRoWYgej7fJil/eaXrJdHzKCTpQhs8DlWtNsDAPFLGFff0hyb6KNlHWNjQ==">
+    href="/css/main.bundle.min.0ab1dc221fde52ea2c65d3723987a90227c70d5bfde1724cbbd42ad32d6cb3523fe3d14efc4ba54979648f78a7623bbc974041c32768dd98851303eea56e993b.css"
+    integrity="sha512-CrHcIh/eUuosZdNyOYepAifHDVv94XJMu9Qq0y1ss1I/49FO/EulSXlkj3inYju8l0BBwydo3ZiFEwPupW6ZOw==">
 
   
   
@@ -555,15 +555,51 @@
   <section class="prose dark:prose-invert w-full"></section>
 </article>
 <section>
-  <div class="latest-posts">
-    <h3>Latest Posts</h3>
-    <ul class="post-list">
-        <li>
-            <a href="http://192.168.1.120:1313/posts/hello-world/">Hello World</a>
-            <span class="post-meta">Mar 15, 2026 · 1 min read</span>
-        </li>
-    </ul>
-    <a href="/posts/" class="see-all">See all posts →</a>
+  
+
+<div class="latest-posts">
+    <div class="latest-posts-header">
+        <h3>Latest Insights</h3>
+        <div class="post-nav-buttons">
+            <button id="prev-btn" onclick="navigatePost(-1)" aria-label="Previous post">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button id="next-btn" onclick="navigatePost(1)" aria-label="Next post">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="post-slides">
+        <div class="post-slide" data-index="0">
+            <a href="http://192.168.1.120:1313/posts/second-post/" class="post-title-link">Setting Up Flux CD on a Home Cluster</a>
+            <p class="post-summary">A walkthrough of how I set up Flux CD on my home Kubernetes cluster to manage deployments via GitOps. Everything from bootstrapping to managing secrets with …</p>
+            <div class="post-tags">
+                <a href="/tags/kubernetes/" class="post-tag">kubernetes</a>
+                <a href="/tags/gitops/" class="post-tag">gitops</a>
+                <a href="/tags/flux/" class="post-tag">flux</a>
+            </div>
+            <span class="post-meta">March 16, 2026 · 1 min read</span>
+        </div>
+        <div class="post-slide" data-index="1">
+            <a href="http://192.168.1.120:1313/posts/hello-world/" class="post-title-link">Hello World</a>
+            <p class="post-summary">This is the beginning of my personal site. Built on Kubernetes, deployed with FluxCD, served via Cloudflare Tunnels.
+</p>
+            <div class="post-tags">
+                <a href="/tags/homelab/" class="post-tag">homelab</a>
+                <a href="/tags/intro/" class="post-tag">intro</a>
+            </div>
+            <span class="post-meta">March 15, 2026 · 1 min read</span>
+        </div>
+    </div>
+
+    <div class="post-footer">
+        <a href="/posts/" class="see-all">Explore all posts ↗</a>
+        <div class="post-dots" id="post-dots">
+            <span class="dot" onclick="goToPost( 0 )"></span>
+            <span class="dot" onclick="goToPost( 1 )"></span>
+        </div>
+    </div>
 </div>
 
 <div class="bottom-grid">
@@ -577,10 +613,9 @@
         <img
             src="https://github-readme-streak-stats.herokuapp.com?user=enyuanman&theme=dark&hide_border=true&background=00000000"
             alt="GitHub Streak"
-            style="max-width: 100%;"
+            style="display: block; margin: 1rem auto 0; max-width: 100%;"
         />
     </div>
-
     <div class="reachability">
         <h3>Reachability</h3>
         <ul class="reach-links">
@@ -605,6 +640,44 @@
         </ul>
     </div>
 </div>
+
+<script>
+let current = 0;
+let slides, dots, total;
+
+function goToPost(n) {
+    slides[current].style.display = 'none';
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].style.display = 'flex';
+    slides[current].style.flexDirection = 'column';
+    slides[current].style.gap = '8px';
+    dots[current].classList.add('active');
+    document.getElementById('prev-btn').disabled = current === 0;
+    document.getElementById('next-btn').disabled = current === total - 1;
+}
+
+function navigatePost(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < total) goToPost(next);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    slides = document.querySelectorAll('.post-slide');
+    dots = document.querySelectorAll('.dot');
+    total = slides.length;
+
+    slides.forEach((s, i) => {
+        s.style.display = i === 0 ? 'flex' : 'none';
+        s.style.flexDirection = 'column';
+        s.style.gap = '8px';
+    });
+
+    dots[0].classList.add('active');
+    document.getElementById('prev-btn').disabled = true;
+    if (total <= 1) document.getElementById('next-btn').disabled = true;
+});
+</script>
 
 </section>
 
