@@ -1,0 +1,10 @@
+languageName: English
+weight: 1
+title: enyuanzwerver
+params:
+  author:
+    name: Enyuan
+    headline: DevOps Engineer
+    bio : >
+      DevOps Engineer, homelabber, learner.
+      Sharing my journey through infrastructure, career and things I pick up along the way.

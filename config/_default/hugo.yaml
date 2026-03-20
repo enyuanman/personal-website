@@ -1,0 +1,10 @@
+baseURL: https://enyuanzwerver.com
+languageCode: en
+theme: blowfish
+pagination:
+  pagerSize: 10
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON

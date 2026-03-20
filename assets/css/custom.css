@@ -1,0 +1,129 @@
+.latest-posts {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 8px;
+}
+.github-activity {
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 8px;
+}
+.reachability {
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 8px;
+}
+.reach-links svg {
+    display: inline !important;
+    vertical-align: middle;
+}
+
+.latest-posts {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--color-neutral) / 0.2);
+    border-radius: 8px;
+}
+.latest-posts h3 {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgb(var(--color-neutral) / 0.6);
+    margin-bottom: 1rem;
+}
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.post-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid rgb(var(--color-neutral) / 0.2);
+}
+.post-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.post-list a {
+    font-size: 15px;
+    color: rgb(var(--color-neutral));
+    text-decoration: none;
+}
+.post-list a:hover {
+    text-decoration: underline;
+}
+.post-meta {
+    font-size: 12px;
+    color: rgb(var(--color-neutral) / 0.6);
+}
+.see-all {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 13px;
+    color: rgb(var(--color-neutral) / 0.6);
+    text-decoration: none;
+}
+.see-all:hover {
+    color: rgb(var(--color-neutral));
+}
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.github-activity {
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--color-neutral) / 0.2);
+    border-radius: 8px;
+}
+.github-activity h3 {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgb(var(--color-neutral) / 0.6);
+    margin-bottom: 1rem;
+}
+.github-activity img {
+    border-radius: 4px;
+}
+.reachability {
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--color-neutral) / 0.2);
+    border-radius: 8px;
+}
+.reachability h3 {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgb(var(--color-neutral) / 0.6);
+    margin-bottom: 1rem;
+}
+.reach-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.reach-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgb(var(--color-neutral) / 0.6);
+    text-decoration: none;
+}
+.reach-links a:hover {
+    color: rgb(var(--color-neutral));
+}

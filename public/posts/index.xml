@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on </title>
+    <title>Posts on enyuanzwerver</title>
     <link>http://192.168.1.120:1313/posts/</link>
-    <description>Recent content in Posts on </description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://192.168.1.120:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Posts on enyuanzwerver</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Enyuan</copyright>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://192.168.1.120:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Hello World</title>
       <link>http://192.168.1.120:1313/posts/hello-world/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
       <guid>http://192.168.1.120:1313/posts/hello-world/</guid>
-      <description>&lt;p&gt;This is the beginning of my personal site.
-Built on Kubernetes, deployed with FluxCD, served via Cloudflare Tunnels.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is the beginning of my personal site.&#xA;Built on Kubernetes, deployed with FluxCD, served via Cloudflare Tunnels.&lt;/p&gt;</description>
+      
     </item>
+    
   </channel>
 </rss>
