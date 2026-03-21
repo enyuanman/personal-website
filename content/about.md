@@ -1,11 +1,16 @@
 ---
-title: "About"
+title: "About Me"
 layout: "page"
 url: "/about/"
-summary: "About me"
+date: 2024-03-20
+draft: false
+showDate: false
+showAuthor: false
+showWordCount: false
+showReadingTime: false
 ---
 
-## Hi, I'm enyuanzwerver
+Hi, I'm Enyuan!
 
 I'm a DevOps Engineer based in the Netherlands, passionate about infrastructure, homelabs, and building things that actually work in production.
 
@@ -23,7 +28,7 @@ Outside of work I run a self-hosted Kubernetes cluster on bare-metal hardware, w
 - **Observability** — Prometheus + Grafana
 - **Secrets** — Sealed Secrets
 - **Tunnel** — Cloudflare Tunnels for zero-trust public exposure
-- **This site** — Hugo + PaperMod, built and deployed automatically via GitHub Actions
+- **This site** — Hugo + Blowfish, built and deployed automatically via GitHub Actions
 
 ## What I write about
 

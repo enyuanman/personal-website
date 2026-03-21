@@ -1,166 +1,239 @@
-.latest-posts {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    border-radius: 8px;
+.prose .hero-block,
+.prose .latest-posts,
+.prose .github-activity,
+.prose .reachability,
+article .hero-block,
+article .latest-posts,
+article .github-activity,
+article .reachability {
+    border: 1px solid rgb(var(--color-neutral) / 0.2) !important;
+    border-radius: 8px !important;
 }
-.github-activity {
-    padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    border-radius: 8px;
-}
-.reachability {
-    padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    border-radius: 8px;
-}
-.reach-links svg {
-    display: inline !important;
-    vertical-align: middle;
+.prose .hero-block,
+article .hero-block {
+    border-radius: 12px !important;
 }
 
-.latest-posts {
-    margin-top: 1.5rem;
+/* ─── Hero block ─── */
+.hero-block {
+    width: 100%;
+    padding: 2.5rem;
+    border: 1px solid rgb(var(--color-neutral) / 0.2) !important;
+    border-radius: 12px !important;
     margin-bottom: 1.5rem;
-    padding: 1.5rem;
-    border: 1px solid rgb(var(--color-neutral) / 0.2);
-    border-radius: 8px;
-}
-.latest-posts h3 {
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: rgb(var(--color-neutral) / 0.6);
-    margin-bottom: 1rem;
-}
-.post-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.post-list li {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding-bottom: 12px;
-    border-bottom: 0.5px solid rgb(var(--color-neutral) / 0.2);
-}
-.post-list li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-.post-list a {
-    font-size: 15px;
-    color: rgb(var(--color-neutral));
-    text-decoration: none;
-}
-.post-list a:hover {
-    text-decoration: underline;
-}
-.post-meta {
-    font-size: 12px;
-    color: rgb(var(--color-neutral) / 0.6);
-}
-.see-all {
-    display: inline-block;
-    margin-top: 1rem;
-    font-size: 13px;
-    color: rgb(var(--color-neutral) / 0.6);
-    text-decoration: none;
-}
-.see-all:hover {
-    color: rgb(var(--color-neutral));
-}
-.bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 200px;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-.github-activity {
-    padding: 1.5rem;
-    border: 1px solid rgb(var(--color-neutral) / 0.2);
-    border-radius: 8px;
-}
-.github-activity h3 {
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: rgb(var(--color-neutral) / 0.6);
-    margin-bottom: 1rem;
-}
-.github-activity img {
-    border-radius: 4px;
-}
-.reachability {
-    padding: 1.5rem;
-    border: 1px solid rgb(var(--color-neutral) / 0.2);
-    border-radius: 8px;
-}
-.reachability h3 {
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: rgb(var(--color-neutral) / 0.6);
-    margin-bottom: 1rem;
-}
-.reach-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.reach-links a {
+    /* Add flexbox for image + content layout */
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: rgb(var(--color-neutral) / 0.6);
-    text-decoration: none;
-}
-.reach-links a:hover {
-    color: rgb(var(--color-neutral));
+    gap: 3rem;
 }
 
-.github-activity img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.github-activity img:nth-child(2) {
-    margin-top: 1rem;
-}
-
-.latest-posts a {
-    text-decoration: none !important;
-}
-.post-summary {
-    text-decoration: none !important;
-}
-.post-tags {
-    text-decoration: none !important;
-}
-.post-slide p,
-.post-slide span {
-    text-decoration: none !important;
+/* Hero image container */
+.hero-image {
+    flex-shrink: 0;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Hero content wrapper */
+.hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgb(var(--color-neutral) / 0.5);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+    font-family: monospace;
+}
+.hero-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(var(--color-primary));
+    display: inline-block;
+}
+.hero-divider {
+    opacity: 0.3;
+}
+.hero-headline {
+    font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+    color: rgb(var(--color-neutral)) !important;
+    margin-bottom: 1.25rem !important;
+    text-align: left !important;
+}
+.hero-accent {
+    color: rgb(var(--color-primary));
+}
+.hero-bio {
+    font-size: 0.95rem !important;
+    color: rgb(var(--color-neutral) / 0.6) !important;
+    line-height: 1.7 !important;
+    max-width: 520px;
+    margin-bottom: 1.75rem !important;
+}
+.hero-bio strong {
+    color: rgb(var(--color-neutral) / 0.9) !important;
+    font-weight: 500 !important;
+}
+/* Hero Actions - Higher specificity with outline fallback */
+/* Hero Actions - Fixed CSS variable syntax */
+.hero-block .hero-actions {
+    display: flex !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    margin-top: 1.75rem !important;
+}
+
+.hero-block .hero-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+}
+
+.hero-block .hero-btn-primary,
+.hero-block a.hero-btn-primary {
+    background-color: #06b6d4 !important;
+    background: #06b6d4 !important;
+    color: #ffffff !important;
+    border: 2px solid #06b6d4 !important;
+}
+
+.hero-block .hero-btn-primary:hover,
+.hero-block a.hero-btn-primary:hover {
+    background-color: #0891b2 !important;
+    background: #0891b2 !important;
+    transform: translateY(-1px) !important;
+}
+
+.hero-block .hero-btn-secondary,
+.hero-block a.hero-btn-secondary {
+    background-color: transparent !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.hero-block .hero-btn-secondary:hover,
+.hero-block a.hero-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+    .hero-block {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-headline {
+        text-align: center !important;
+    }
+    
+    .hero-image {
+        width: 200px;
+    }
+    
+    .hero-actions {
+        justify-content: center !important;
+    }
+}
+/* ─── Latest posts card ─── */
+.latest-posts {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--color-neutral) / 0.2) !important;
+    border-radius: 8px !important;
+}
 .latest-posts-header {
     display: flex !important;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1.25rem;
 }
+.latest-posts h3 {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--color-neutral) / 0.5);
+    margin: 0;
+}
+
+/* ─── Nav buttons ─── */
 .post-nav-buttons {
     display: flex !important;
     gap: 6px;
 }
+.post-nav-buttons button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgb(var(--color-neutral) / 0.2) !important;
+    border-radius: 6px;
+    background: transparent;
+    color: rgb(var(--color-neutral) / 0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+.post-nav-buttons button:hover:not(:disabled) {
+    border-color: rgb(var(--color-neutral) / 0.5) !important;
+    color: rgb(var(--color-neutral));
+}
+.post-nav-buttons button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
 
+/* ─── Slides ─── */
+#post-slides {
+    min-height: 130px;
+}
+.post-slide {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.post-slide:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ─── Post content ─── */
 .latest-posts,
 .bottom-grid {
     font-size: unset !important;
@@ -169,11 +242,6 @@
 .bottom-grid * {
     text-decoration: none;
 }
-.latest-posts a:hover .post-title-link,
-.post-title-link:hover {
-    text-decoration: underline !important;
-}
-
 .post-title-link {
     font-size: 1.1rem !important;
     font-weight: 600 !important;
@@ -213,4 +281,172 @@
     color: rgb(var(--color-neutral) / 0.4) !important;
     margin-top: 4px !important;
     text-decoration: none !important;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.post-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid rgb(var(--color-neutral) / 0.2);
+}
+.post-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.post-list a {
+    font-size: 15px;
+    color: rgb(var(--color-neutral));
+    text-decoration: none;
+}
+.post-list a:hover {
+    text-decoration: underline;
+}
+.post-meta {
+    font-size: 12px;
+    color: rgb(var(--color-neutral) / 0.6);
+}
+
+/* ─── Post footer ─── */
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(var(--color-neutral) / 0.1) !important;
+}
+.see-all {
+    font-size: 13px;
+    color: rgb(var(--color-neutral) / 0.5);
+    text-decoration: none;
+}
+.see-all:hover {
+    color: rgb(var(--color-neutral));
+}
+.post-dots {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgb(var(--color-neutral) / 0.2);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.dot.active {
+    width: 18px;
+    border-radius: 3px;
+    background: rgb(var(--color-primary) / 0.8);
+}
+
+/* ─── Bottom grid ─── */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.github-activity {
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--color-neutral) / 0.2) !important;
+    border-radius: 8px !important;
+}
+.github-activity h3 {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--color-neutral) / 0.5);
+    margin-bottom: 1rem;
+}
+.github-activity img {
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.github-activity img:nth-child(2) {
+    margin-top: 1rem;
+}
+.reachability {
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--color-neutral) / 0.2) !important;
+    border-radius: 8px !important;
+}
+.reachability h3 {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--color-neutral) / 0.5);
+    margin-bottom: 1rem;
+}
+.reach-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.reach-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgb(var(--color-neutral) / 0.6);
+    text-decoration: none;
+}
+.reach-links a:hover {
+    color: rgb(var(--color-neutral));
+}
+
+.home-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* ─── Center all content site-wide ─── */
+body > main,
+.prose,
+article,
+.article-wrapper,
+.page-wrapper,
+.content-wrapper {
+    max-width: 800px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Exception for tags page - allow more width */
+body.tags main,
+body.tags .prose,
+.taxonomy main,
+.taxonomy .prose {
+    max-width: 1200px !important;
+}
+
+/* Also center the header/navigation */
+body > header,
+.header-inner,
+header > div {
+    max-width: 800px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

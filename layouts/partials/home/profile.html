@@ -1,47 +1,71 @@
 {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
-<article
-  class="{{ if not .Site.Params.homepage.showRecent }}
-    h-full
-  {{ end }} flex flex-col items-center justify-center text-center">
-  <header class="relative px-1 py-1 flex flex-col items-center mb-3">
-    {{ with .Site.Params.Author.image }}
-      {{ $authorImage := "" }}
-      {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-        {{ $authorImage = resources.GetRemote . }}
-      {{ else }}
-        {{ $authorImage = resources.Get . }}
-      {{ end }}
-      {{ if $authorImage }}
-        {{ $final := $authorImage }}
-        {{ $squareImage := $authorImage }}
-        {{ if not (or $disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
-          {{ $final = $authorImage.Fill (print "288x288 q" ( $.Site.Params.Author.imagequality | default "96" )) }}
-          {{ $shortSide := int (math.Min $authorImage.Width $authorImage.Height) }}
-          {{ $squareImage = $authorImage.Crop (printf "%dx%d" $shortSide $shortSide ) }}
-        {{ end }}
-        <img
-          class="mb-2 h-36 w-36 rounded-full"
-          width="144"
-          height="144"
-          alt="{{ $.Site.Params.Author.name | default `Author` }}"
-          src="{{ $final.RelPermalink }}"
-          data-zoom-src="{{ $squareImage.RelPermalink }}">
-      {{ end }}
-    {{ end }}
-    <h1 class="text-4xl font-extrabold">
-      {{ .Site.Params.Author.name | default .Site.Title }}
-    </h1>
-    {{ with .Site.Params.Author.headline }}
-      <h2 class="text-xl text-neutral-500 dark:text-neutral-400">
-        {{ . | markdownify }}
-      </h2>
-    {{ end }}
-    <div class="mt-1 text-2xl">
-      {{ partialCached "author-links.html" . }}
+<div class="hero-block">
+    <div class="hero-image">
+        <img src="images/devops-logo.png" alt="Server illustration">
     </div>
-  </header>
-  <section class="prose dark:prose-invert w-full">{{ .Content }}</section>
-</article>
+
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="hero-dot"></span>
+            DevOps Engineer
+            <span class="hero-divider">/</span>
+           The Netherlands
+        </div>
+
+        <h1 class="hero-headline">
+            BUILDING, HOSTING<br>
+            <span class="hero-accent">SHARING.</span>
+        </h1>
+
+        <p class="hero-bio">
+            Hi, I'm Enyuan — welcome to my website which is hosted from my homelab. This is where I share me learnings on: <strong>Kubernetes</strong>, <strong>GitOps</strong>, and <strong>self-hosting</strong>.
+        </p>
+
+        <div class="hero-actions">
+            <a href="/posts" class="hero-btn hero-btn-primary">
+                Read the blog →
+            </a>
+            <a href="/about" class="hero-btn hero-btn-secondary">
+                👤 About me
+            </a>
+        </div>
+    </div>
+</div>
 <section>
   {{ partial "home/custom.html" . }}
 </section>
+<script>
+let current = 0;
+let slides, dots, total;
+
+window.goToPost = function(n) {
+    slides[current].style.display = 'none';
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].style.display = 'flex';
+    slides[current].style.flexDirection = 'column';
+    slides[current].style.gap = '8px';
+    dots[current].classList.add('active');
+    document.getElementById('prev-btn').disabled = current === 0;
+    document.getElementById('next-btn').disabled = current === total - 1;
+}
+
+window.navigatePost = function(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < total) window.goToPost(next);
+}
+
+window.addEventListener('load', function() {
+    slides = document.querySelectorAll('.post-slide');
+    dots = document.querySelectorAll('.dot');
+    total = slides.length;
+    slides.forEach((s, i) => {
+        s.style.display = i === 0 ? 'flex' : 'none';
+        s.style.flexDirection = 'column';
+        s.style.gap = '8px';
+    });
+    if (dots.length > 0) dots[0].classList.add('active');
+    document.getElementById('prev-btn').disabled = true;
+    if (total <= 1) document.getElementById('next-btn').disabled = true;
+});
+</script>

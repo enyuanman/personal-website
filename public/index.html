@@ -96,8 +96,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.0ab1dc221fde52ea2c65d3723987a90227c70d5bfde1724cbbd42ad32d6cb3523fe3d14efc4ba54979648f78a7623bbc974041c32768dd98851303eea56e993b.css"
-    integrity="sha512-CrHcIh/eUuosZdNyOYepAifHDVv94XJMu9Qq0y1ss1I/49FO/EulSXlkj3inYju8l0BBwydo3ZiFEwPupW6ZOw==">
+    href="/css/main.bundle.min.8db2c14c2fc4b3f7eea940b5e2efab4579498cf8b82ec640093cbeb53b8862a065a3cfc7b0c47960fb02a2fbc143bc277152cc8217075ded79cfd02222d7b070.css"
+    integrity="sha512-jbLBTC/Es/fuqUC14u&#43;rRXlJjPi4LsZACTy&#43;tTuIYqBlo8/HsMR5YPsCovvBQ7wncVLMghcHXe15z9AiItewcA==">
 
   
   
@@ -221,6 +221,14 @@
 
   
   
+    <style>
+.latest-posts, .hero-block, .github-activity, .reachability {
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 8px !important;
+}
+</style>
+
+  
 
   
   
@@ -282,42 +290,6 @@
       
         <span class="text-base font-medium break-normal">
           Blog
-        </span>
-      
-    </a>
-  
-
-    
-      
-  
-    <a
-      href="/resume/"
-      
-      class="flex items-center bf-icon-color-hover"
-      aria-label="Resume"
-      title="">
-      
-      
-        <span class="text-base font-medium break-normal">
-          Resume
-        </span>
-      
-    </a>
-  
-
-    
-      
-  
-    <a
-      href="/tags/"
-      
-      class="flex items-center bf-icon-color-hover"
-      aria-label="Tags"
-      title="">
-      
-      
-        <span class="text-base font-medium break-normal">
-          Tags
         </span>
       
     </a>
@@ -454,40 +426,6 @@
     
     <div class="px-2">
       <a
-        href="/resume/"
-        aria-label="Resume"
-        
-        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
-        
-        <span title="" class="text-2xl font-bold tracking-tight">
-          Resume
-        </span>
-        
-      </a>
-
-      
-    </div>
-  
-    
-    <div class="px-2">
-      <a
-        href="/tags/"
-        aria-label="Tags"
-        
-        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
-        
-        <span title="" class="text-2xl font-bold tracking-tight">
-          Tags
-        </span>
-        
-      </a>
-
-      
-    </div>
-  
-    
-    <div class="px-2">
-      <a
         href="/about/"
         aria-label="About"
         
@@ -535,25 +473,38 @@
   
   
     
-<article
-  class=" flex flex-col items-center justify-center text-center">
-  <header class="relative px-1 py-1 flex flex-col items-center mb-3">
-    
-    <h1 class="text-4xl font-extrabold">
-      Enyuan
-    </h1>
-    
-      <h2 class="text-xl text-neutral-500 dark:text-neutral-400">
-        DevOps Engineer
-      </h2>
-    
-    <div class="mt-1 text-2xl">
-      
-
+<div class="hero-block">
+    <div class="hero-image">
+        <img src="images/devops-logo.png" alt="Server illustration">
     </div>
-  </header>
-  <section class="prose dark:prose-invert w-full"></section>
-</article>
+
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="hero-dot"></span>
+            DevOps Engineer
+            <span class="hero-divider">/</span>
+           The Netherlands
+        </div>
+
+        <h1 class="hero-headline">
+            BUILDING, HOSTING<br>
+            <span class="hero-accent">SHARING.</span>
+        </h1>
+
+        <p class="hero-bio">
+            Hi, I'm Enyuan — welcome to my website which is hosted from my homelab. This is where I share me learnings on: <strong>Kubernetes</strong>, <strong>GitOps</strong>, and <strong>self-hosting</strong>.
+        </p>
+
+        <div class="hero-actions">
+            <a href="/posts" class="hero-btn hero-btn-primary">
+                Read the blog →
+            </a>
+            <a href="/about" class="hero-btn hero-btn-secondary">
+                👤 About me
+            </a>
+        </div>
+    </div>
+</div>
 <section>
   
 
@@ -641,11 +592,12 @@
     </div>
 </div>
 
+</section>
 <script>
 let current = 0;
 let slides, dots, total;
 
-function goToPost(n) {
+window.goToPost = function(n) {
     slides[current].style.display = 'none';
     dots[current].classList.remove('active');
     current = n;
@@ -657,29 +609,25 @@ function goToPost(n) {
     document.getElementById('next-btn').disabled = current === total - 1;
 }
 
-function navigatePost(dir) {
+window.navigatePost = function(dir) {
     const next = current + dir;
-    if (next >= 0 && next < total) goToPost(next);
+    if (next >= 0 && next < total) window.goToPost(next);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
     slides = document.querySelectorAll('.post-slide');
     dots = document.querySelectorAll('.dot');
     total = slides.length;
-
     slides.forEach((s, i) => {
         s.style.display = i === 0 ? 'flex' : 'none';
         s.style.flexDirection = 'column';
         s.style.gap = '8px';
     });
-
-    dots[0].classList.add('active');
+    if (dots.length > 0) dots[0].classList.add('active');
     document.getElementById('prev-btn').disabled = true;
     if (total <= 1) document.getElementById('next-btn').disabled = true;
 });
 </script>
-
-</section>
 
   
 
